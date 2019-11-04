@@ -26,30 +26,24 @@ public class LinkedList {
     /* Отримати елемент по індексу, повертає null якщо такий елемент недоступний */
     public Integer get(int index) {
 
-        if (first != null)
+
+        Node currentNode = first;
+        int i = -1;
+
+        while (currentNode != null)
         {
-            Node currentNode = first;
-            int i = -1;
+            i++;
 
-            while (currentNode != null)
+            if (i == index)
             {
-                i++;
-
-                if (i == index)
-                {
-                    return currentNode.getData();
-                }
-
-                currentNode = currentNode.getNext();
+                return currentNode.getData();
             }
 
-            return null;
+            currentNode = currentNode.getNext();
+        }
 
-        }
-        else
-        {
-            return null;
-        }
+        return null;
+
     }
 
     /* Вилучення елементу за індексом, повертає true у разі успіху або false в іншому випадку */
